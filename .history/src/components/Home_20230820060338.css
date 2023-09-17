@@ -1,0 +1,283 @@
+.home {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+  overflow: hidden;
+}
+.home-row {
+  display: flex;
+  z-index: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.home-image {
+  width: 100%;
+  z-index: -1;
+  margin-bottom: -150px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+body {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0;
+  -webkit-text-size-adjust: none;
+  /* stop WebKit and Windows mobile changing text size */
+  -ms-text-size-adjust: 100%;
+  /* stop WebKit and Windows mobile changing text size */
+  margin: 0 auto !important;
+  /* fix email not centered on Android 4.4 + Samsung Mail */
+  background: #ececec;
+}
+
+table {
+  border-collapse: collapse !important;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+
+/* Remove spacing between tables in Outlook 2007 and up */
+
+img {
+  border: 0;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+  /* smoother resized images in Internet Explorer */
+}
+
+
+@media screen and (max-width: 580px) {
+  /* centre on gmail iphone */
+  .container {
+    width: 100vw !important;
+  }
+
+  .rwd-line {
+    display: block;
+  }
+
+  .center {
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  .img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .width100 {
+    width: 100% !important;
+  }
+  .mobilehide {
+    display: none !important;
+  }
+}
+
+/* CAROUSEL STYLES */
+.carousel-container,
+input {
+  display: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0), screen and (min--moz-device-pixel-ratio: 0) {
+  @supports (color: #ffffff) {
+    .fallback {
+      display: none !important;
+    }
+
+    .carousel-container,
+    .carousel-viewport {
+      display: block !important;
+      width: 600px;
+      height: 400px;
+    }
+
+    .carousel-viewport {
+      background-image: url("https://source.unsplash.com/random/1800x1200");
+      background-size: 1800px 1200px;
+      background-position: center center;
+      transition: background-position 0.3s linear;
+      -webkit-transition: background-position 0.3s linear;
+    }
+
+    /* Nav markers */
+    .slide {
+      display: none;
+      width: 600px;
+      height: 400px;
+      position: relative;
+      animation: fadeIn linear 0.7s;
+      -webkit-animation: fadeIn linear 0.7s;
+    }
+    .slide label {
+      position: absolute;
+      width: 28px;
+      height: 52px;
+      font-size: 50px;
+      color: #fff;
+    }
+
+    .slide label img {
+      width: 100%;
+      animation: pulse 1.5s ease-in-out infinite;
+      -webkit-animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    label.up {
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-90deg);
+      -webkit-transform: translateX(-50%) rotate(-90deg);
+    }
+    label.left {
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%) rotate(-180deg);
+      -webkit-transform: translateY(-50%) rotate(-180deg);
+    }
+    label.right {
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+    }
+    label.down {
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(90deg);
+      -webkit-transform: translateX(-50%) rotate(90deg);
+    }
+
+    /* CHECK CONTROLS */
+    #slide1:checked ~ div .slide-tl {
+      display: block !important;
+    }
+    #slide1:checked ~ .carousel-viewport {
+      background-position: left top;
+    }
+
+    #slide2:checked ~ div .slide-tc {
+      display: block !important;
+    }
+    #slide2:checked ~ .carousel-viewport {
+      background-position: center top;
+    }
+
+    #slide3:checked ~ div .slide-tr {
+      display: block !important;
+    }
+    #slide3:checked ~ .carousel-viewport {
+      background-position: right top;
+    }
+
+    #slide4:checked ~ div .slide-ml {
+      display: block !important;
+    }
+    #slide4:checked ~ .carousel-viewport {
+      background-position: left center;
+    }
+
+    #slide5:checked ~ div .slide-mid {
+      display: block !important;
+    }
+    #slide5:checked ~ .carousel-viewport {
+      background-position: center center;
+    }
+
+    #slide6:checked ~ div .slide-mr {
+      display: block !important;
+    }
+    #slide6:checked ~ .carousel-viewport {
+      background-position: right center;
+    }
+
+    #slide7:checked ~ div .slide-bl {
+      display: block !important;
+    }
+    #slide7:checked ~ .carousel-viewport {
+      background-position: left bottom;
+    }
+
+    #slide8:checked ~ div .slide-bc {
+      display: block !important;
+    }
+    #slide8:checked ~ .carousel-viewport {
+      background-position: center bottom;
+    }
+
+    #slide9:checked ~ div .slide-br {
+      display: block !important;
+    }
+    #slide9:checked ~ .carousel-viewport {
+      background-position: right bottom;
+    }
+
+    @media screen and (max-width: 580px) {
+      .carousel-container,
+      .carousel-viewport,
+      .slide {
+        width: 100vw !important;
+        height: 66vw !important;
+      }
+
+      .carousel-viewport {
+        background-size: 300vw 198vw !important;
+      }
+    }
+
+    /* fallbacks */
+    div[class~="aolmail_fallback"],
+    #MessageViewBody .fallback {
+      display: block !important;
+    }
+
+    div[class~="aolmail_carousel-container"],
+    #MessageViewBody .carousel-container {
+      display: none !important;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1, 1);
+      }
+      50% {
+        transform: scale(1.1, 1.1);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-transform: scale(1, 1);
+      }
+      50% {
+        -webkit-transform: scale(1.1, 1.1);
+      }
+      100% {
+        -webkit-transform: scale(1, 1);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
